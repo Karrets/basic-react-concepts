@@ -71,3 +71,19 @@
 .worldTotal {
   text-align: center;
 }
+
+.AddCountry {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+
+  form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .CountryInput {
+      flex-grow: 1;
+    }
+  }
+}

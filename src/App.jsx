@@ -2,6 +2,7 @@ import './App.scss';
 import CountryPanel from "./components/CountryPanel";
 import {Component} from "react";
 import Totals from "./components/Totals";
+import AddCountry from "./components/AddCountry";
 
 class App extends Component {
     state = {
@@ -31,6 +32,14 @@ class App extends Component {
         this.setState({countries: mutable})
     }
 
+    addCountry = (name) => {
+        let mutable = [...this.state.countries];
+
+        mutable.push({id: Math.random() * 10e100, name: name, gold: 0, silver: 0, bronze: 0})
+
+        this.setState({countries: mutable})
+    }
+
     render() {
         return (
             <div className="CountryContainer">
@@ -39,6 +48,8 @@ class App extends Component {
                     array={this.state.countries}
                     sumsOf={['gold', 'silver', 'bronze']}>
                 </Totals>
+
+                <AddCountry addCountryHandler={this.addCountry}></AddCountry>
 
                 {this.state.countries.map((c) =>
                     <CountryPanel
