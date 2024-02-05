@@ -36,7 +36,18 @@
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-  height: 350px;
+  height: 300px;
+
+  .CountryHeader {
+    display: flex;
+    flex-direction: row;
+
+    .Delete {
+      width: 50px;
+      height: 50px;
+      margin: auto 5px auto auto;
+    }
+  }
 
   h1 {
     margin: 0;

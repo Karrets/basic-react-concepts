@@ -40,6 +40,15 @@ class App extends Component {
         this.setState({countries: mutable})
     }
 
+    removeCountry = (id) => {
+        let mutable = [...this.state.countries];
+        let removed = mutable.findIndex((c) => c.id === id);
+
+        if(removed > -1) mutable.splice(removed, 1);
+
+        this.setState({countries: mutable})
+    }
+
     render() {
         return (
             <div className="CountryContainer">
@@ -58,6 +67,7 @@ class App extends Component {
                         name={c.name}
                         add={this.add}
                         remove={this.remove}
+                        handleDelete={this.removeCountry}
                         gold={c.gold}
                         silver={c.silver}
                         bronze={c.bronze}>

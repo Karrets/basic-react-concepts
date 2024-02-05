@@ -1,6 +1,7 @@
 import {Component} from "react";
-import {Paper} from "@mui/material";
+import {IconButton, Paper} from "@mui/material";
 import AwardPedestal from "./AwardPedestal";
+import {Delete} from "@mui/icons-material";
 
 class CountryPanel extends Component {
     state = {
@@ -34,9 +35,16 @@ class CountryPanel extends Component {
                 className="CountryPanel"
                 elevation={1}>
                 <Paper
+                    className={"CountryHeader"}
                     elevation={4}>
-                    <h1>{this.props.name}</h1>
-                    <p>Award Total: {this.aggregate()}</p>
+                    <div className="container">
+                        <h1>{this.props.name}</h1>
+                        <p>Award Total: {this.aggregate()}</p>
+                    </div>
+
+                    <IconButton className={"Delete"} onClick={() => this.props.handleDelete(this.props.id)}>
+                        <Delete></Delete>
+                    </IconButton>
                 </Paper>
 
                 <div className='PedestalContainer'>
